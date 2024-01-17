@@ -48,4 +48,3 @@ async def main_test(dut):
     await Timer(150, units='ns')
     dut._log.info("Running test...done")
 
-    
