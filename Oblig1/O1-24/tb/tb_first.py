@@ -28,6 +28,7 @@ async def main_test(dut):
     # Setting inputs to zero, then wait for 10ns
     dut.inp.value = 0
     dut.load.value = 0
+    dut.up.value = 1
     await Timer(10, units="ns")
 
     # Clear reset, ...
@@ -36,15 +37,17 @@ async def main_test(dut):
     await Timer(20, units="ns")
     
     #Set input value
-    dut.inp.value = 0b1010
-    dut.load.value = 1
+    #dut.inp.value = 0b1010
+    #dut.load.value = 1
+   
     
     #Wait for clock edge to rise
     await RisingEdge(dut.clk)   
 
+    dut.up.value = 0
     #Turn off load to let counting resume
     dut.load.value = 0
 
-    await Timer(150, units='ns')
+    await Timer(700, units='ns')
     dut._log.info("Running test...done")
 

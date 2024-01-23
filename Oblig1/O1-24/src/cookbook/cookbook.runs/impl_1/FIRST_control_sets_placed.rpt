@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Wed Jan 17 15:47:25 2024
+| Date         : Tue Jan 23 14:53:52 2024
 | Host         : stamford.ifi.uio.no running 64-bit Red Hat Enterprise Linux release 8.9 (Ootpa)
 | Command      : report_control_sets -verbose -file FIRST_control_sets_placed.rpt
 | Design       : FIRST

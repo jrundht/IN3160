@@ -23,5 +23,9 @@ set_property src_info {type:XDC file:1 line:11 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN M15 [get_ports load]
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN U14 [get_ports max_count]
-set_property src_info {type:XDC file:1 line:26 export:INPUT save:INPUT read:READ} [current_design]
-set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]];
+set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U19 [get_ports min_count]
+set_property src_info {type:XDC file:1 line:14 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN H17 [get_ports up]
+set_property src_info {type:XDC file:1 line:16 export:INPUT save:INPUT read:READ} [current_design]
+set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 33]]

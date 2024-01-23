@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Jan 17 15:40:10 2024
-# Process ID: 312548
+# Start of session at: Tue Jan 23 14:52:28 2024
+# Process ID: 1283401
 # Current directory: /uio/hume/student-u26/jorundht/IN3160/Oblig1/O1-24/src/cookbook/cookbook.runs/synth_1
 # Command line: vivado -log FIRST.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIRST.tcl
 # Log file: /uio/hume/student-u26/jorundht/IN3160/Oblig1/O1-24/src/cookbook/cookbook.runs/synth_1/FIRST.vds
