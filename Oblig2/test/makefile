@@ -8,20 +8,20 @@ TOPLEVEL_LANG ?= vhdl
 EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
-TOPLEVEL ?= decoder
+TOPLEVEL ?= decoder_ent#has to be the same as the entity-name
+NEXTLEVEL = decoder
 
-ARCH ?= case
+#ARCH ?= case
+ARCH ?= select
 
-VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL)_ent.vhd
-VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL)_$(ARCH).vhd
 
-#VHDL_SOURCES += /uio/hume/student-u26/jorundht/IN3160/Oblig2/src/decoder_ent.vhd
-#VHDL_SOURCES += /uio/hume/student-u26/jorundht/IN3160/Oblig2/src/decoder_case.vhd
+VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
+VHDL_SOURCES += $(PWD)/../src/$(NEXTLEVEL)_$(ARCH).vhd
 
-SIM_ARGS +=--wave=$(TOPLEVEL).ghw
+SIM_ARGS +=--wave=$(NEXTLEVEL).ghw
 
 # MODULE is the basename of the Python test file
-MODULE = tb_$(TOPLEVEL)_$(ARCH)
+MODULE = tb_$(NEXTLEVEL)_$(ARCH)
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim
