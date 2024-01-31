@@ -9,9 +9,9 @@ EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
 # for ab:
-TOPLEVEL ?= delay
+#TOPLEVEL ?= delay
 # for c,d:   
-#TOPLEVEL ?= variables_vs_signals
+TOPLEVEL ?= variables_vs_signals
 
 VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
 

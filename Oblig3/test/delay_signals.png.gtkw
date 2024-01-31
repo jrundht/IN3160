@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed Jan 31 13:50:48 2024
+[*]
+[dumpfile] "/uio/hume/student-u26/jorundht/IN3160/Oblig3/test/delay.ghw"
+[dumpfile_mtime] "Wed Jan 31 13:45:46 2024"
+[dumpfile_size] 952
+[savefile] "/uio/hume/student-u26/jorundht/IN3160/Oblig3/test/delay_signals.png.gtkw"
+[timestart] 0
+[size] 1385 600
+[pos] -1 -1
+*-27.497423 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 283
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 155
+@22
+#{top.delay.a[7:0]} top.delay.a[7] top.delay.a[6] top.delay.a[5] top.delay.a[4] top.delay.a[3] top.delay.a[2] top.delay.a[1] top.delay.a[0]
+#{top.delay.b[7:0]} top.delay.b[7] top.delay.b[6] top.delay.b[5] top.delay.b[4] top.delay.b[3] top.delay.b[2] top.delay.b[1] top.delay.b[0]
+#{top.delay.c[7:0]} top.delay.c[7] top.delay.c[6] top.delay.c[5] top.delay.c[4] top.delay.c[3] top.delay.c[2] top.delay.c[1] top.delay.c[0]
+#{top.delay.indata[7:0]} top.delay.indata[7] top.delay.indata[6] top.delay.indata[5] top.delay.indata[4] top.delay.indata[3] top.delay.indata[2] top.delay.indata[1] top.delay.indata[0]
+@28
+top.delay.mclk
+@22
+#{top.delay.outdata[7:0]} top.delay.outdata[7] top.delay.outdata[6] top.delay.outdata[5] top.delay.outdata[4] top.delay.outdata[3] top.delay.outdata[2] top.delay.outdata[1] top.delay.outdata[0]
+@28
+top.delay.rst_n
+@22
+#{top.delay.v1[7:0]} top.delay.v1[7] top.delay.v1[6] top.delay.v1[5] top.delay.v1[4] top.delay.v1[3] top.delay.v1[2] top.delay.v1[1] top.delay.v1[0]
+#{top.delay.v2[7:0]} top.delay.v2[7] top.delay.v2[6] top.delay.v2[5] top.delay.v2[4] top.delay.v2[3] top.delay.v2[2] top.delay.v2[1] top.delay.v2[0]
+[pattern_trace] 1
+[pattern_trace] 0

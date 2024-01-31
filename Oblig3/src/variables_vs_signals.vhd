@@ -12,7 +12,7 @@ architecture dataflow of variables_vs_signals is
   signal sig1, sig2 : std_logic;
 begin
   
-P_VAR_SIG_MIX:  process (indata, sig1, sig2) is    
+P_VAR_SIG_MIX:  process (indata) is    
     variable var1, var2 : std_logic;
   begin
     var1 := indata;
