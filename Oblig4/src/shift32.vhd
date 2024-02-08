@@ -11,6 +11,7 @@ entity shift32 is
 	);
 end shift32;
 
+-- Med fire 8-bit shifters
 -- architecture structural of shift32 is
 -- 	component shift8 
 -- 	port(
@@ -32,6 +33,7 @@ end shift32;
 -- 	serial_out <= next_signal(0);
 -- end architecture structural;
 
+-- Med 32 dff generert med for generate
 architecture structural of shift32 is
 	component dff 
 	port(
@@ -45,8 +47,12 @@ architecture structural of shift32 is
 	begin
 		DFF0 : dff port map(rst_n => reset, mclk => clk, din => serial_in, dout => b(31));
 
-        generate_dff : for i in 1 to 31 generate
-            DFF : port map(rst_n => reset, mclk => clk, din => b(31-i), dout => b(30-i));
+        generate_dff: 
+        for i in 1 to 31 generate
+            DFFi: dff port map(rst_n => reset, 
+                           mclk => clk, 
+                           din => b(32-i), 
+                           dout => b(31-i));
         end generate;
 
 	serial_out <= b(0);

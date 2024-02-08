@@ -8,7 +8,9 @@ TOPLEVEL_LANG ?= vhdl
 EXTRA_ARGS +=--std=08
 
 # TOPLEVEL ?= shift8
-TOPLEVEL ?= shift32
+# TOPLEVEL ?= shift32
+TOPLEVEL ?= shiftn
+SIM_ARGS +=-gWIDTH=64
 
 VHDL_SOURCES += $(PWD)/../src/dff.vhd
 VHDL_SOURCES += $(PWD)/../src/shift8.vhd
@@ -16,7 +18,6 @@ VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
 
 # Generic shifter
 # VHDL_SOURCES += $(PWD)/../src/shiftn.vhd
-# SIM_ARGS +=-gWIDTH=5
 
 SIM_ARGS +=--wave=$(TOPLEVEL).ghw
 
