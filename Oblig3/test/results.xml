@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1706717314" />
-    <testcase name="main_test" classname="tb_variables_vs_signals" file="/uio/hume/student-u26/jorundht/IN3160/Oblig3/test/tb_variables_vs_signals.py" lineno="10" time="0.0006809234619140625" sim_time_ns="300.000001" ratio_time="440578.15272909804" />
+    <property name="random_seed" value="1707313211" />
+    <testcase name="main_test" classname="tb_delay" file="/uio/hume/student-u26/jorundht/IN3160/Oblig3/test/tb_delay.py" lineno="5" time="0.0020072460174560547" sim_time_ns="900.000001" ratio_time="448375.5320340069" />
   </testsuite>
 </testsuites>
