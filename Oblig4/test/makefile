@@ -14,7 +14,7 @@ SIM_ARGS +=-gWIDTH=64
 
 VHDL_SOURCES += $(PWD)/../src/dff.vhd
 VHDL_SOURCES += $(PWD)/../src/shift8.vhd
-VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
+# VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
 
 # Generic shifter
 # VHDL_SOURCES += $(PWD)/../src/shiftn.vhd
