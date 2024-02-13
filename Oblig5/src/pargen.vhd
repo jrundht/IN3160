@@ -12,6 +12,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+use work.subprog_pck.all;
+
 entity pargen is 
   generic (
     WIDTH : integer := 16
@@ -26,23 +29,16 @@ end pargen;
 
 architecture rtl of pargen is 
   signal toggle_parity, xor_parity, combined_parity : std_logic;
-begin  
 
+begin  
   --Method 1: parity toggle, using for, loop and variables.   
   process (all) is
-    variable toggle : std_logic;
   begin
-    toggle := '0';
-    for i in indata1'range loop
-      if indata1(i) = '1' then
-        toggle := not toggle;
-      end if;        
-    end loop;
-    toggle_parity <= toggle;
+    toggle_parity <= parity_toggle(indata1);
   end process;
 
   -- Method: 2 parity using xor function (VHDL 2008)
-  xor_parity <= xor(indata2);  -- Cascaded XORs 
+  xor_parity <= parity_xor(indata2);  -- Cascaded XORs 
 
   -- combining parity using the xor operator 
   combined_parity <= toggle_parity xor xor_parity; 
