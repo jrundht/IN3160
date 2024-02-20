@@ -8,14 +8,18 @@ TOPLEVEL_LANG ?= vhdl
 EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
-TOPLEVEL = bin2ssd_test
+# TOPLEVEL = bin2ssd_test
+TOPLEVEL = seg7ctrl_ent
+NEXTLEVEL = seg7ctrl
 
-VHDL_SOURCES += $(PWD)/../src/*.vhd
+VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
+VHDL_SOURCES += $(PWD)/../src/$(NEXTLEVEL)_c_arch.vhd
+# VHDL_SOURCES += $(PWD)/../src/bin2ssd_test.vhd
 
 SIM_ARGS +=--wave=$(TOPLEVEL).ghw 
 
 # MODULE is the basename of the Python test file
-MODULE = tb_$(TOPLEVEL)
+MODULE = tb_$(NEXTLEVEL)
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim

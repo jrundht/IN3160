@@ -1,7 +1,7 @@
 import cocotb
 from cocotb.triggers import Edge, Timer, ReadOnly
 
-# Dictionary that are in accorance with 'Table 1 Truth table for a seven-segment display*
+# Dictionary that are in accordance with 'Table 1 Truth table for a seven-segment display*
 # Used for testing the combinatorial function made in task a).
 bin2ssd = {
     0b0000: 0b1111110,
