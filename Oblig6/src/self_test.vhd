@@ -38,11 +38,12 @@ architecture RTL of self_test is
                 count := (others => '0');
             elsif rising_edge(mclk) then
                 count := count + 1;
-                tick <= '0'; -- MAKE SURE IT IS ONLY ACTIVE FOR ONE CLOCK CYCLE
-
+                
                 if count = X"3B9ACA00" then -- NUMBER OF NS IN 1S
                     tick <= '1';
                     count := (others => '0');
+                else
+                    tick <= '0'; -- MAKE SURE IT IS ONLY ACTIVE FOR ONE CLOCK CYCLE
                 end if;
             end if;
     end process;
