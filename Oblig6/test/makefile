@@ -9,17 +9,28 @@ EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
 # TOPLEVEL = bin2ssd_test
-TOPLEVEL = seg7ctrl_ent
+# TOPLEVEL=ROM
+# TOPLEVEL = seg7ctrl_ent
 NEXTLEVEL = seg7ctrl
+TOPLEVEL = self_test
 
+# NEXTLEVEL = ROM
+
+# VHDL_SOURCES += $(PWD)/../src/*.vhd
+
+VHDL_SOURCES += $(PWD)/../src/ROM.vhd
+VHDL_SOURCES += $(PWD)/../src/seg7_pkg.vhd
+VHDL_SOURCES += $(PWD)/../src/seg7ctrl_ent.vhd
+VHDL_SOURCES += $(PWD)/../src/seg7ctrl_c_arch.vhd
 VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
-VHDL_SOURCES += $(PWD)/../src/$(NEXTLEVEL)_c_arch.vhd
-# VHDL_SOURCES += $(PWD)/../src/bin2ssd_test.vhd
+
+# VHDL_SOURCES += $(PWD)/../src/$(NEXTLEVEL)_c_arch.vhd
+
 
 SIM_ARGS +=--wave=$(TOPLEVEL).ghw 
 
 # MODULE is the basename of the Python test file
-MODULE = tb_$(NEXTLEVEL)
+MODULE = tb_$(TOPLEVEL)
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim

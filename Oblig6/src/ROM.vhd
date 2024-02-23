@@ -6,7 +6,7 @@ use STD.textio.all;
 entity ROM is
     generic(
         data_width: natural := 8;
-        addr_width: natural := 2
+        addr_width: natural := 4
     );
     port(
         address : in std_logic_vector(addr_width-1 downto 0);
@@ -15,7 +15,7 @@ entity ROM is
 end entity;
 
 architecture synth of ROM is
-    type memory_array is array(2**width-1 downto 0) of
+    type memory_array is array(0 to 2**addr_width-1) of
     std_logic_vector(data_width-1 downto 0);
 
     constant ROM_DATA: memory_array := (
