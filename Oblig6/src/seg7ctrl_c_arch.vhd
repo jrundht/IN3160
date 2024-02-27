@@ -14,7 +14,7 @@ begin
     process(mclk, reset) is 
         variable count : unsigned(19 downto 0); --VARIABLE THAT COUNTS UP TO 100Hz
     begin
-        if reset then 
+        if reset  = '1' then 
             count := (others => '0'); -- RESET ASYNCHRONOUSLY
             c_default <= '0';
         elsif rising_edge(mclk) then
@@ -28,5 +28,5 @@ begin
 
     end process;
 
-    abcdefg <= bin2ssd_v2(d1) when c else bin2ssd_v2(d0);
+    abcdefg <= bin2ssd_v2(d1) when c_default else bin2ssd_v2(d0);
 end RTL;

@@ -22,6 +22,25 @@ rom_values = [
         0b01100101, # 6 5
         0b00000000  # 0 0
 ]
+
+bin2ssd_v2 = {
+    0b0000: 0b0000000,
+    0b0001: 0b0011110,
+    0b0010: 0b0111100,
+    0b0011: 0b1001111,
+    0b0100: 0b0001110,
+    0b0101: 0b0111101,
+    0b0110: 0b0011101,
+    0b0111: 0b0010101,
+    0b1000: 0b0111011,
+    0b1001: 0b0111110,
+    0b1010: 0b1110111,
+    0b1011: 0b0000101,
+    0b1100: 0b1111011,
+    0b1101: 0b0011100,
+    0b1110: 0b0001101,
+    0b1111: 0b1111111
+}
 def write_log_info(dut, string):
     # Green color to make text stand out in terminal
     color_start = "\033[32m" 
@@ -38,17 +57,12 @@ async def reset_dut(dut):
 
 async def compare(dut):
     write_log_info(dut, "Starting compare...")
-    address = dut.adr.value
+    # address = dut.adr.value
     while True:
         await ReadOnly()
-        if dut.adr.value != address:
-            address = dut.adr.value
-            value = rom_values[address]
-            exp_d1 = (value & 0b11110000) >> 4 
-            exp_d0 = value & 0b00001111
-            assert int(dut.d0.value) == int(exp_d0),write_log_info(dut,f"d0 failed: expected {exp_d0}, got {dut.d0.value}")
-            
-            assert int(dut.d1.value) == int(exp_d1),write_log_info(dut,f"d1 failed:  expected {exp_d1}, got {dut.d1.value}")
+        expected = bin2ssd_v2[int(dut.d0_system.value)] if dut.c.value == 0 else bin2ssd_v2[int(dut.d1_system.value)]
+        assert int(dut.abcdefg.value) == expected, write_log_info(dut, f"Fail: Actual value of 'abcdefg = {bin(dut.abcdefg.value)}' is not matching the expected value of: '{bin(expected)}'")
+
 
 @cocotb.test()
 async def main_test(dut):

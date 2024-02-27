@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 -- PACKAGE DECLARATION
 package seg7_pkg is
-    function bin2ssd(bin : std_logic_vector) return std_logic_vector;
+    function bin2ssd(bin : std_logic_vector(3 downto 0)) return std_logic_vector;
 
-    function bin2ssd_v2(bin : std_logic_vector) return std_logic_vector;
+    function bin2ssd_v2(bin : std_logic_vector(3 downto 0)) return std_logic_vector;
 
 
 end package seg7_pkg;
@@ -15,7 +15,7 @@ end package seg7_pkg;
 package body seg7_pkg is
 
     -- CONVERT 4-BIT BINARY INPUT TO SEVEN SEGMENT CODE
-    function bin2ssd(bin : std_logic_vector) return std_logic_vector is
+    function bin2ssd(bin : std_logic_vector(3 downto 0)) return std_logic_vector is
         variable ssd : std_logic_vector(6 downto 0);
     begin
         case bin is
@@ -41,7 +41,7 @@ package body seg7_pkg is
         return ssd;
     end bin2ssd;
 
-    function bin2ssd_v2(bin : std_logic_vector) return std_logic_vector is
+    function bin2ssd_v2(bin : std_logic_vector(3 downto 0)) return std_logic_vector is
         variable ssd : std_logic_vector(6 downto 0);
     begin
         case bin is

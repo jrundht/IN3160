@@ -1,3 +1,4 @@
+import os
 import cocotb
 from cocotb.triggers import Edge, Timer, ReadOnly
 

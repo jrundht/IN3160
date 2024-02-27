@@ -8,23 +8,20 @@ TOPLEVEL_LANG ?= vhdl
 EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
+VHDL_SOURCES += $(PWD)/../src/*.vhd
+
+# TASK c
 # TOPLEVEL = bin2ssd_test
-# TOPLEVEL=ROM
 # TOPLEVEL = seg7ctrl_ent
-NEXTLEVEL = seg7ctrl
-TOPLEVEL = self_test
-
-# NEXTLEVEL = ROM
-
-# VHDL_SOURCES += $(PWD)/../src/*.vhd
-
-VHDL_SOURCES += $(PWD)/../src/ROM.vhd
-VHDL_SOURCES += $(PWD)/../src/seg7_pkg.vhd
-VHDL_SOURCES += $(PWD)/../src/seg7ctrl_ent.vhd
-VHDL_SOURCES += $(PWD)/../src/seg7ctrl_c_arch.vhd
-VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
-
-# VHDL_SOURCES += $(PWD)/../src/$(NEXTLEVEL)_c_arch.vhd
+# TOPLEVEL = self_test
+TOPLEVEL = self_test_system
+# VHDL_SOURCES += $(PWD)/../src/ROM.vhd
+# VHDL_SOURCES += $(PWD)/../src/seg7_pkg.vhd
+# VHDL_SOURCES += $(PWD)/../src/seg7ctrl_ent.vhd
+# VHDL_SOURCES += $(PWD)/../src/seg7ctrl_c_arch.vhd
+# VHDL_SOURCES += $(PWD)/../src/seg7ctrl_b_arch.vhd
+# VHDL_SOURCES += $(PWD)/../src/self_test.vhd
+# VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
 
 
 SIM_ARGS +=--wave=$(TOPLEVEL).ghw 

@@ -1,3 +1,4 @@
+import os
 import cocotb
 from cocotb import start_soon
 from cocotb.clock import Clock
@@ -68,10 +69,11 @@ async def compare(dut):
         # await Edge(dut.C)
         await Timer(20, units = "ns")
         await ReadOnly()
-        expected = bin2ssd_v2[int(dut.d0.value)] if dut.c.value == 0 else bin2ssd_v2[int(dut.d1.value)]
+        # expected = bin2ssd[int(dut.d0.value)] if dut.c.value == 0 else bin2ssd[int(dut.d1.value)] # FOR b
+        expected = bin2ssd_v2[int(dut.d0.value)] if dut.c.value == 0 else bin2ssd_v2[int(dut.d1.value)] # FOR c
         val = dut.d0.value if dut.c.value == 0 else dut.d1.value
         assert int(dut.abcdefg.value) == expected, \
-            write_log_info(dut, f"Fail: Actual value of 'abcdefg = {bin(dut.abcdefg.value)}' is not matching the expected value of: '{bin(expected)}'")
+            write_log_info(dut, f"Fail: Actual value of 'abcdefg = {bin(dut.abcdefg.value)}' is not matching the expected value of: '{bin(expected)}', for {val}")
 
         write_log_info(dut, f"Pass with input = {val}. Output Actual: {bin(dut.abcdefg.value)}, expected: {bin(expected)}")
 
@@ -83,4 +85,4 @@ async def main_test(dut):
     await reset_dut(dut)
     cocotb.start_soon(compare(dut))
     await cocotb.start_soon(stimuli_generator(dut))
-    write_log_info(dut,"Testing done. All tests passed...")
+    write_log_info(dut,f"Testing done of {os.path.basename(__file__)}...")
