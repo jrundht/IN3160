@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-05T06:37:21.441Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="DmcshWBiClanUBkiLWVg" version="24.0.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-05T06:40:08.201Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="NKXnheA74IWgiIwWCnIQ" version="24.0.0" type="github">
   <diagram name="Page-1" id="MUlbAWOHpuI2E0oenqgP">
     <mxGraphModel dx="1434" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -79,7 +79,7 @@
         <mxCell id="56cxlW9oswRvd2zso15L-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="56cxlW9oswRvd2zso15L-38" vertex="1">
           <mxGeometry width="160" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="56cxlW9oswRvd2zso15L-35" value="driver module" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="56cxlW9oswRvd2zso15L-38" vertex="1">
+        <mxCell id="56cxlW9oswRvd2zso15L-35" value="Driver module" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="56cxlW9oswRvd2zso15L-38" vertex="1">
           <mxGeometry x="19.579999999999927" y="10" width="120.83333333333334" height="10" as="geometry" />
         </mxCell>
         <mxCell id="56cxlW9oswRvd2zso15L-37" value="pdm_pulse" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="56cxlW9oswRvd2zso15L-38" vertex="1">
