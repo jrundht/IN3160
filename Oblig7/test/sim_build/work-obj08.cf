@@ -1,0 +1,4 @@
+v 4
+file / "/uio/hume/student-u26/jorundht/IN3160/Oblig7/test/../src/pdm_module.vhd" "c8399d4580f39d2a273b7e0eb5bed2bfd7f29b8a" "20240312170705.217":
+  entity pdm_module at 1( 0) + 0 on 11;
+  architecture synth of pdm_module at 20( 394) + 0 on 12;
