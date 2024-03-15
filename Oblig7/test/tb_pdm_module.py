@@ -165,9 +165,9 @@ async def main_test(dut):
 
     cocotb.start_soon(max_on_check(dut))
     cocotb.start_soon(min_off_check(dut))
-    # cocotb.start_soon(mea_ack_not_asserted(dut))
-    # cocotb.start_soon(mea_ack_asserted(dut))
-    # cocotb.start_soon(mea_ack_deasserted(dut))
+    cocotb.start_soon(mea_ack_not_asserted(dut))
+    cocotb.start_soon(mea_ack_asserted(dut))
+    cocotb.start_soon(mea_ack_deasserted(dut))
     cocotb.start_soon(duty_cycle_check(dut))
 
     await cocotb.start_soon(stimulate_mea_req(dut))
