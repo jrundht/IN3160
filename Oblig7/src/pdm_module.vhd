@@ -22,7 +22,7 @@ architecture RTL of pdm_module is
   alias PDM_out                    : std_logic is r_acc(r_acc'left); -- leftmost bit = “carry”
 
   signal next_timer, next_counter  : unsigned(WIDTH-1 downto 0) := (others => '0');
-  signal timer, counter, update_timer  : unsigned(WIDTH-1 downto 0) := (others => '0');
+  signal timer, counter            : unsigned(WIDTH-1 downto 0) := (others => '0');
 
   type state_type is (s_mea, s_low, s_high);
   signal  present_state, next_state : state_type;
@@ -42,10 +42,14 @@ architecture RTL of pdm_module is
         else
           -- Update timer and counter 
           timer <= next_timer;
-          counter <= next_counter when PDM_out = '1';
           r_acc <= next_acc;
           present_state <= next_state;
 
+          if pdm_pulse then 
+            counter <= next_counter when PDM_out = '0' else counter;
+          else 
+            counter <= next_counter when PDM_out else counter;
+          end if;
         end if;
       end if;
     end process;
@@ -109,11 +113,9 @@ architecture RTL of pdm_module is
           
           -- Count down logic
           else (counter - 1) 
-          when (pdm_pulse = '1' and counter > ZERO) 
-          else counter;
+          when (pdm_pulse = '1' and counter > ZERO);
+          --else counter;
 
-
-        update_timer <= unsigned(max_on) when pdm_pulse else unsigned(min_off);
     end process;
 
   end architecture RTL;
