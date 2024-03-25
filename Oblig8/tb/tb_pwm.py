@@ -44,7 +44,7 @@ class SignalEventMonitor():
         return stable
   
  
-class Monitor():
+class Monitor:
     """ Contains all tests checking signals in and from DUT """
     def __init__(self, dut):
         self.dut = dut
@@ -93,7 +93,10 @@ class Monitor():
             await Edge(self.dut.duty_cycle) 
             await ClockCycles(self.dut.mclk, 2)   # Trigger two clock edges after duty cycle was changed
             await ReadOnly()                      # Wait for all signals to settle (all delta delays)
-            duty = int(self.dut.duty_cycle.value) # Check if sign and dir matches
+            
+            #Linjen under gir feil/ deprecation warning med nyere numpy 
+            #duty = int(self.dut.duty_cycle.value) # Check if sign and dir matches
+            duty = int(self.dut.duty_cycle.value.signed_integer) # Numpy compatibility 
             if np.int8(duty) > 0: 
                 assert self.dut.dir.value == 1, (
                   "DIR is not '1' within 2 clock cycles of positive duty cycle: {DU} = {D}"
@@ -127,7 +130,10 @@ class Monitor():
                 mid = self.en_mon.last_fall/ps_conv['us']
                 high = mid-start
                 measured_duty = np.int8((high*100)/interval)
-                set_duty = np.int8(self.dut.duty_cycle.value.integer)*100/128
+                
+                # Linjen under gir feil i nyere numpy 
+                #set_duty = np.int8(self.dut.duty_cycle.value.integer)*100/128
+                set_duty = np.int8(self.dut.duty_cycle.value.signed_integer)*100/128
                 
                 # Report duty cycle and check correspondens betweem input and output
                 sign = "-" if self.dut.dir.value == 0 else " "

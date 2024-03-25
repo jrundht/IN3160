@@ -1,7 +1,7 @@
 library IEEE;
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
---  use work.seg7_pkg.all; 
+ use work.seg7_pkg.all; 
  
 entity velocity_reader is
   generic(
