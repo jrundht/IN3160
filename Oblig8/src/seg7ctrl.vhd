@@ -33,7 +33,7 @@ begin
       elsif rising_edge(mclk) then
           count := count + 1;
 
-          if count = X"0002" then -- WHEN COUNTED TO THIS, FLIP C -- X"F4240" -- HUSK Å SETTE VERDI TILBAKE!!
+          if count = X"F4240" then -- WHEN COUNTED TO THIS, FLIP C -- X"F4240" -- HUSK Å SETTE VERDI TILBAKE!!
               c_default <= not c_default; 
               count := (others => '0'); 
           end if;
@@ -41,6 +41,6 @@ begin
 
   end process;
 
-  abcdefg <= bin2ssd_v2(d1) when c_default else bin2ssd_v2(d0);
+  abcdefg <= bin2ssd(d1) when c_default else bin2ssd(d0);
 end RTL;
 

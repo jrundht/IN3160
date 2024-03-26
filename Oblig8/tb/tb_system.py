@@ -36,11 +36,11 @@ async def reset_dut(dut):
 async def check_synch_en(dut):
     # Check that en_synch is high exactly one clock cycle after en 
     while True:
-        await RisingEdge(dut.en)
+        await RisingEdge(dut.sys_en)
         await ReadOnly()
         start_en = get_sim_time('ns')
 
-        await RisingEdge(dut.en_synch_test)
+        await RisingEdge(dut.sys_en_synch)
         await ReadOnly()
         start_en_synch = get_sim_time('ns')
 
@@ -51,11 +51,11 @@ async def check_synch_en(dut):
 async def check_synch_dir(dut):
     # Check that dir_synch is high exactly one clock cycle after dir 
     while True:
-        await RisingEdge(dut.dir)
+        await RisingEdge(dut.sys_dir)
         await ReadOnly()
         start_dir = get_sim_time('ns')
 
-        await RisingEdge(dut.dir_synch_test)
+        await RisingEdge(dut.sys_dir_synch)
         await ReadOnly()
         start_dir_synch = get_sim_time('ns')
 
