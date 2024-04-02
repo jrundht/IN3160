@@ -19,7 +19,7 @@ entity system is
 end entity;
 
 
-architecture RTL of system is
+architecture Structural of system is
     signal sys_duty_cycle : std_logic_vector(7 downto 0);
     
     signal sys_en, sys_dir    : std_logic;
@@ -29,6 +29,7 @@ architecture RTL of system is
     signal sys_pos_inc, sys_pos_dec : std_logic;
 
     signal sys_velocity : signed(7 downto 0);
+    signal sys_seg7_velocity : std_logic_vector(7 downto 0);
   begin
     
     -- self_test_module - determines speed and direction (duty_cycle) from ROM
@@ -81,12 +82,14 @@ architecture RTL of system is
               velocity => sys_velocity);
 
     -- seg7ctrl - displays velocity on seven segment display
+    sys_seg7_velocity <= std_logic_vector(abs(sys_velocity));
+
     seg7ctrl : entity work.seg7ctrl
     port map(mclk => mclk,
               reset => reset,
-              d0 => std_logic_vector(abs(sys_velocity(3 downto 0))), 
-              d1 => std_logic_vector(abs(sys_velocity(7 downto 4))),
+              d0 => sys_seg7_velocity(3 downto 0), 
+              d1 => sys_seg7_velocity(7 downto 4),
               abcdefg => seg7_velocity,
               c => sys_c);
     
-  end RTL;
+  end Structural;

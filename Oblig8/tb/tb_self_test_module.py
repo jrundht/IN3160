@@ -12,16 +12,16 @@ def write_log_info(dut, string):
 
 async def reset_dut(dut):
     write_log_info(dut, "Resetting...")
-    await FallingEdge(dut.clk)
+    await FallingEdge(dut.mclk)
     dut.reset.value = 1
-    await RisingEdge(dut.clk)
+    await RisingEdge(dut.mclk)
     dut.reset.value = 0
     write_log_info(dut, "Resetting complete...")
 
 @cocotb.test()
 async def main_test(dut):
     write_log_info(dut, "Starting testing...")
-    cocotb.start_soon(Clock(dut.clk, 10, units="ns").start())
+    cocotb.start_soon(Clock(dut.mclk, 10, units="ns").start())
     await reset_dut(dut)
     await Timer(1500, units='ns')
     write_log_info(dut,f"Testing done of {os.path.basename(__file__)}...")

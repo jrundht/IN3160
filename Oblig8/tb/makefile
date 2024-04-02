@@ -10,8 +10,8 @@ EXTRA_ARGS +=--std=08
 # TOPLEVEL is the name of the toplevel module in your VHDL file
 # TOPLEVEL = pulse_width_modulator
 # TOPLEVEL = self_test_module
-TOPLEVEL = system
-# TOPLEVEL = quad_test
+# TOPLEVEL = system
+TOPLEVEL = quadrature_decoder
 # TOPLEVEL = velocity_reader
 
 # VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd

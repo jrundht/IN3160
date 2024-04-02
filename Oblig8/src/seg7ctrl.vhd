@@ -25,15 +25,15 @@ begin
   c <= c_default;
 
   process(mclk, reset) is 
-      variable count : unsigned(19 downto 0); --VARIABLE THAT COUNTS UP TO 100Hz
+      variable count : unsigned(19 downto 0); 
   begin
-      if reset  = '1' then 
+      if reset then 
           count := (others => '0'); -- RESET ASYNCHRONOUSLY
           c_default <= '0';
       elsif rising_edge(mclk) then
           count := count + 1;
 
-          if count = X"F4240" then -- WHEN COUNTED TO THIS, FLIP C -- X"F4240" -- HUSK Å SETTE VERDI TILBAKE!!
+          if count = X"7A120" then -- FLIP C 200 times per second
               c_default <= not c_default; 
               count := (others => '0'); 
           end if;

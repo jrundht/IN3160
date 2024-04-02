@@ -17,8 +17,8 @@ entity quadrature_decoder is
 end entity;
 
 architecture RTL of quadrature_decoder is
-  signal err : std_logic := '0';
-  signal ab_combined : std_logic_vector(1 downto 0) := (others => '0');
+  signal err                : std_logic := '0';
+  signal ab_combined        : std_logic_vector(1 downto 0) := (others => '0');
   signal next_inc, next_dec : std_logic := '0';
 
   type state_type is (s_reset, s_init, s_0, s_1, s_2, s_3);
@@ -126,9 +126,9 @@ begin
     end case;
   end process;
 
-  -- Logic fro controlling inc and dec
+  -- Logic for controlling inc and dec
   -- If put in the output_cl process they only become 0.5 clock cycles long
-  process(all) is
+  INCDEC_LOGIC: process(all) is
   begin
     next_inc <= '1' 
     when present_state = s_0 and ab_combined = "01"
