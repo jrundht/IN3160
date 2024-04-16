@@ -15,7 +15,7 @@ from PIL import Image
 CLOCK_PERIOD_NS = 10
 
 # Downscale image output to make simulation run faster.
-SCALING = 8      # 1 renders full image size.
+SCALING = 4      # 1 renders full image size.
 
 async def reset_dut(dut):
     await FallingEdge(dut.clk)
@@ -60,6 +60,8 @@ async def gray_check(dut):
         CheckR = dut.WR.value * dut.R.value
         CheckG = dut.WG.value * dut.G.value
         CheckB = dut.WB.value * dut.B.value
+        await RisingEdge(dut.clk)
+        await ReadOnly()
         if dut.Y_valid.value == True:
             CheckGray = (CheckR+CheckG+CheckB)>>8
             assert CheckGray == int(dut.Y.value), (
@@ -70,6 +72,7 @@ async def valid_check(dut):
         await FallingEdge(dut.clk)
         await ReadOnly()
         data_valid = dut.RGB_valid.value
+        await RisingEdge(dut.clk)
         await RisingEdge(dut.clk)
         await ReadOnly()
         assert data_valid == dut.Y_valid.value, "Y_valid does not follow RGB_ready"
@@ -95,7 +98,7 @@ async def grayscale_builder(dut, gray):
 @cocotb.test()
 async def main_test(dut):
     dut._log.info("### Opening image ###")
-    img = Image.open('images/mc.jpg')
+    img = Image.open('images/piggie.png')
     width = int(img.width/SCALING)
     height = int(img.height/SCALING)
     gray = Image.new('L', (width, height)) # L for Luma = grayscale has only 1 value per pixel
