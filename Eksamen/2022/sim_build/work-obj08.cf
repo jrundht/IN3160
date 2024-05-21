@@ -1,0 +1,10 @@
+v 4
+file / "/uio/hume/student-u26/jorundht/IN3160/Eksamen/2022/pulse_stretcher_fsm.vhd" "63eb88378faebf904da7ca6db7c95b275ade09e7" "20240514120446.856":
+  entity pulse_stretcher_fsm at 1( 0) + 0 on 11;
+  architecture rtl of pulse_stretcher_fsm at 17( 294) + 0 on 12;
+file / "/uio/hume/student-u26/jorundht/IN3160/Eksamen/2022/compute_seq_pipelined.vhd" "ba09f980f18a300e9d4bef5e6c8222f378a1965a" "20240514120446.668":
+  entity compute_seq_pipelined at 1( 0) + 0 on 4;
+  architecture rtl of compute_seq_pipelined at 20( 544) + 0 on 4;
+file / "/uio/hume/student-u26/jorundht/IN3160/Eksamen/2022/compute_seq.vhd" "7bf30abd70911f9170b772cade9f34983393ea4d" "20240514120446.669":
+  entity compute_seq at 1( 0) + 0 on 4;
+  architecture rtl of compute_seq at 17( 503) + 0 on 4;

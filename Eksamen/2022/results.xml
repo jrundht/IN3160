@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1715688287" />
+    <testcase name="main" classname="tb_pulse_stretcher_fsm" file="/uio/hume/student-u26/jorundht/IN3160/Eksamen/2022/tb_pulse_stretcher_fsm.py" lineno="11" time="0.007552146911621094" sim_time_ns="130.000001" ratio_time="17213.64832031519">
+      <failure message="Test failed with RANDOM_SEED=1715688287" />
+    </testcase>
+  </testsuite>
+</testsuites>
