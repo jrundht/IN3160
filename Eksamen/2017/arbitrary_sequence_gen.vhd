@@ -1,8 +1,8 @@
-library IEEE:
+library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity arbitrary_sequencer_gen is
+entity arbitrary_sequence_gen is
   port(
     clk  : in std_logic;
     rst  : in std_logic;
@@ -11,10 +11,10 @@ entity arbitrary_sequencer_gen is
   );
 end entity;
 
-architecture RTL of arbitrary_sequencer_gen is
-  type state_type is (S_1, S_2, S_3, S_4,
-                      S_5, S_6, S_7);
-  signal present_state, next_state : state_type;
+architecture RTL of arbitrary_sequence_gen is
+  type state_type is (s_1, s_2, s_3, s_4,
+                      s_5, s_6, s_7);
+  signal present_state, next_state : state_type := s_4;
   
 begin
 
@@ -41,6 +41,9 @@ begin
       when s_5 =>
         next_state <=
           s_6 when run else s_5;
+      when s_6 => 
+      	next_state <= 
+	  s_7 when run else s_6;
       when s_7 =>
         next_state <=
           s_3 when run else s_7;

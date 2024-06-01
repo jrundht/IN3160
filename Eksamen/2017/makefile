@@ -8,8 +8,7 @@ TOPLEVEL_LANG ?= vhdl
 EXTRA_ARGS +=--std=08
 
 # TOPLEVEL is the name of the toplevel module in your VHDL file
-TOPLEVEL ?= pulse_stretcher_fsm
-SIM_ARGS +=-gN=2
+TOPLEVEL ?= arbitrary_sequence_gen
 
 #VHDL_SOURCES += $(PWD)/../src/$(TOPLEVEL).vhd
 VHDL_SOURCES += $(PWD)/*.vhd*
